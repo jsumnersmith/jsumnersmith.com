@@ -10,7 +10,7 @@ const Index = ({allNotes}) => (
       <div>
         {
           allNotes?.map(note => (
-            <div className="mb-5">
+            <div className="mb-5" key={note.title}>
               <h2 className="text-xl font-bold underline-wave"><Link href={`/notes/${note.slug}`}>{note.title}</Link></h2>
               <p>{note.excerpt}</p>
             </div>
