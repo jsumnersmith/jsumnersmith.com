@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: white;
+  --background-end-rgb: 252, 252, 252;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +24,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+@layer components {
+  .underline-wave {
+    @apply  decoration-blue-800 dark:decoration-yellow-500 underline decoration-wavy underline-offset-1;
+  }
 }
