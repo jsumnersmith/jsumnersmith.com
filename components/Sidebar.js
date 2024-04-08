@@ -17,7 +17,7 @@ const Sidebar = () => (
     </div>
 
     <Link href="/"><h1 className="text-2xl font-bold underline-wave text-center mb-5">Joel Sumner Smith</h1></Link>
-    <p className="grow mb-2 text-center">Director of Product <a href="https://firehydrant.com" target="blank" className="underline-wave">@FireHydrant</a>.</p>
+    <p className="grow mb-2 text-center">VP of Product @ <a href="https://tokenterminal.com" target="blank" className="underline-wave">Token Terminal</a>.</p>
     <p className="grow text-center">Analogical thinker in an analytical world.</p>
     <p className="mt-3 text-center">© 2023, Joel Sumner Smith</p>
   </div>
