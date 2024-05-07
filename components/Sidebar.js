@@ -1,17 +1,19 @@
 import Image from 'next/image'
 import darkmug from '../public/dark-mug.png'
 import lightmug from '../public/light-mug.png'
+import coffeePixels from '../public/coffee-pixel.png'
 import Link from 'next/link';
 
 const Sidebar = () => (
   <div className="p-3 w-80 flex-none">
     <div className="flex justify-center">
       <picture>
-        <source srcSet={darkmug.src} media="(prefers-color-scheme: dark)" />
+        <source srcSet={coffeePixels.src} media="(prefers-color-scheme: dark)" />
         <Image
-            src={lightmug}
+            src={coffeePixels}
             alt="A stylized mug"
             width={100}
+            style={{borderRadius: 100, marginBottom: 20}}
         />
       </picture>
     </div>
