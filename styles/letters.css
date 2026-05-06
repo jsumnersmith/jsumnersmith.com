@@ -1,0 +1,65 @@
+/* Letter post body — mirrors Gatsby letters.css, theme via prefers-color-scheme */
+.letters-content {
+  --color-blue: mediumblue;
+  --color-gray: #222;
+  --color-gray-light: #ccc;
+  --color-gray-medium: #888;
+  --color-white: #fff;
+  --color-yellow: #fabc60;
+  --color-text: var(--color-gray);
+  --color-background: var(--color-white);
+  --color-primary: var(--color-blue);
+  --color-muted: var(--color-gray-light);
+  --color-soft: var(--color-gray-medium);
+  --color-heading: var(--color-gray);
+}
+
+@media (prefers-color-scheme: dark) {
+  .letters-content {
+    --color-text: var(--color-white);
+    --color-background: var(--color-gray);
+    --color-primary: var(--color-yellow);
+    --color-muted: var(--color-gray-medium);
+    --color-soft: var(--color-gray-light);
+    --color-heading: var(--color-white);
+  }
+}
+
+.letters-content h1,
+.letters-content h2,
+.letters-content h3,
+.letters-content h4,
+.letters-content strong {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.letters-content em {
+  font-style: italic;
+}
+
+.letters-content p {
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.letters-content a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-style: wavy;
+  color: var(--color-text);
+}
+
+.letters-content a:hover {
+  color: var(--color-primary);
+}
+
+.letters-content blockquote {
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 5px solid var(--color-muted);
+  font-style: italic;
+  color: var(--color-text);
+}

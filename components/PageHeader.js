@@ -1,43 +1,50 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import darkNotes from '../public/dark-notes.png'
-import lightNotes from '../public/light-notes.png'
-import darkBook from '../public/dark-book.png'
-import lightBook from '../public/light-book.png'
 
-const PageHeaderContent = ({title, description}) => {
-  let imgLight = lightBook;
-  let imgDark = darkBook; 
-  if (title === 'Notes') {
-    imgLight = lightNotes;
-    imgDark = darkNotes; 
-  } 
+const PageHeaderContent = ({ title, description }) => {
+  const isNotes = title === 'Notes'
+  const imgLight = isNotes ? '/light-notes.png' : '/light-book.png'
+  const imgDark = isNotes ? '/dark-notes.png' : '/dark-book.png'
+
   return (
     <div className="flex">
       <div className="min-w-[170px] p-6">
-        <picture className="w-[100%]">
-          <source srcSet={imgDark.src} media="(prefers-color-scheme: dark)" />
-          <Image
-              src={imgLight}
-              alt={`A page-level icon - ${title}`}
-              width={100}
-              height={100}
+        <picture className="block w-full">
+          <source srcSet={imgDark} media="(prefers-color-scheme: dark)" />
+          <img
+            src={imgLight}
+            alt={`A page-level icon — ${title}`}
+            width={100}
+            height={100}
+            className="h-auto w-[100px]"
           />
         </picture>
       </div>
       <div className="py-6 pr-6">
-        <h2 className="text-2xl underline-wave font-bold mb-3">{title}</h2>
+        <h2 className="mb-3 text-2xl font-bold underline-wave">{title}</h2>
         <p>{description}</p>
       </div>
     </div>
   )
-};
+}
 
-const PageHeader = ({link, title, description}) => (
+const cardBorderClass =
+  'border border-neutral-300 dark:border-neutral-600 rounded-md'
+
+const PageHeader = ({ link, title, description }) => (
   <>
-    { link ? <Link href={link} className="border-gray-200 border flex cursor-pointer mb-6"><PageHeaderContent title={title} description={description}/></Link>
-            : <div className="border-transparent border"><PageHeaderContent title={title} description={description}/></div> }
+    {link ? (
+      <Link
+        href={link}
+        className={`${cardBorderClass} mb-6 flex cursor-pointer text-inherit no-underline transition-colors hover:border-neutral-500 dark:hover:border-neutral-400`}
+      >
+        <PageHeaderContent title={title} description={description} />
+      </Link>
+    ) : (
+      <div className={`${cardBorderClass} mb-6 border-transparent`}>
+        <PageHeaderContent title={title} description={description} />
+      </div>
+    )}
   </>
-);
+)
 
-export default PageHeader;
+export default PageHeader

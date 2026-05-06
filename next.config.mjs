@@ -5,6 +5,25 @@ import createMDX from '@next/mdx'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/literature/:path*',
+        destination: '/letters/:path*',
+        permanent: true,
+      },
+      {
+        source: '/other/letters/test',
+        destination: '/letters',
+        permanent: true,
+      },
+      {
+        source: '/other/cool/:path*',
+        destination: '/letters',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 const withMDX = createMDX({
